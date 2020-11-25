@@ -1,0 +1,27 @@
+serviceprovider : http://192.168.3.108:8080
+server:
+  port: 8082
+  servlet:
+    session:
+      cookie:
+        name: UISESSIONCOUPON
+
+security:
+  oauth2:
+    client:
+      client-id: CouponSystem
+      client-secret: 12345
+      access-token-uri: ${serviceprovider}/oauth/token
+      user-authorization-uri: ${serviceprovider}/oauth/authorize
+    resource:
+      user-info-uri: ${serviceprovider}/user/me
+logging:
+  level:
+    root: info
+spring:
+  thymeleaf:
+    cache: false
+  security:
+    user:
+      name: coupon
+      password: GZSyinlz1024^*
