@@ -1,0 +1,7 @@
+独立的项目
+
+要分别运行项目才能跑起来
+
+先启动 auth-server 认证中心
+
+后启动 client-coupon 和 client-member 子系统
