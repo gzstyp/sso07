@@ -10,6 +10,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
+
 /*
     0、访问请求 http://192.168.3.108:8082/coupon/list 或 http://192.168.3.108:8081/member/list
     1、去登录认证中心登录
