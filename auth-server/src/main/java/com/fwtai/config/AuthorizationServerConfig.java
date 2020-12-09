@@ -70,7 +70,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
             .secret(new BCryptPasswordEncoder().encode("12345"))
             .authorizedGrantTypes("authorization_code","refresh_token","password")
             .scopes("all")
-            .autoApprove(true)
+            .autoApprove(true)//自动授权,即免去鼠标去点击授权按钮
             //加上验证后回调地址???若是客户端不填写的话,那就是事先访问的url认证后跳转到原访问的URL
             .redirectUris("http://192.168.3.108:8081/login")//member会员子系统登录;去登录认证成功后返回code去访问本子系统验证登录接口url
             .and()//第2个子系统
@@ -78,7 +78,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
             .secret(new BCryptPasswordEncoder().encode("12345"))
             .authorizedGrantTypes("authorization_code","refresh_token","password")
             .scopes("all")
-            .autoApprove(true)
+            .autoApprove(true)//自动授权,即免去鼠标去点击授权按钮
             .redirectUris("http://192.168.3.108:8082/login");//coupon优惠卷子系统登录;去登录认证成功后返回code去访问本子系统验证登录接口url
     }
 
