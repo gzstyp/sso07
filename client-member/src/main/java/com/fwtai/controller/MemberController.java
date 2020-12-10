@@ -4,6 +4,7 @@ import com.fwtai.domain.Member;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,10 +22,16 @@ public class MemberController {
      * 会员列表页面,http://192.168.3.108:8081/member/list
     */
     @RequestMapping("/list")
-    public ModelAndView list(final Principal principal){
-        System.out.println(principal);
+    public ModelAndView list(final Principal pl){
+        System.out.println(pl);
         final SecurityContext context = SecurityContextHolder.getContext();//获取当前登录账号信息
         System.out.println(context);
+        final Object principal = context.getAuthentication().getPrincipal();
+        if (principal instanceof UserDetails) {
+            String username = ((UserDetails)principal).getUsername();
+        } else {
+            String username = principal.toString();
+        }
         final ModelAndView modelAndView = new ModelAndView("member/list");
         return modelAndView;
     }
